@@ -19,3 +19,5 @@ CREATE TABLE observations (
 );
 
 ALTER TABLE observations ADD CONSTRAINT unique_observation UNIQUE (indicator_code, location_name, year);
+
+CREATE INDEX idx_observations_indicator_code ON observations(indicator_code);
