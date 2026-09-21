@@ -1,0 +1,218 @@
+location_name,value,year,indicator_code
+"Egypt, Arab Rep.",0.572,1990,HDI
+Jordan,0.619,1990,HDI
+Saudi Arabia,0.67,1990,HDI
+"Egypt, Arab Rep.",0.578,1991,HDI
+Jordan,0.625,1991,HDI
+Saudi Arabia,0.681,1991,HDI
+"Egypt, Arab Rep.",0.586,1992,HDI
+Jordan,0.638,1992,HDI
+Saudi Arabia,0.688,1992,HDI
+"Egypt, Arab Rep.",0.593,1993,HDI
+Jordan,0.643,1993,HDI
+Saudi Arabia,0.693,1993,HDI
+"Egypt, Arab Rep.",0.601,1994,HDI
+Jordan,0.647,1994,HDI
+Saudi Arabia,0.699,1994,HDI
+"Egypt, Arab Rep.",0.609,1995,HDI
+Jordan,0.653,1995,HDI
+Saudi Arabia,0.705,1995,HDI
+"Egypt, Arab Rep.",0.617,1996,HDI
+Jordan,0.657,1996,HDI
+Saudi Arabia,0.711,1996,HDI
+"Egypt, Arab Rep.",0.623,1997,HDI
+Jordan,0.661,1997,HDI
+Saudi Arabia,0.718,1997,HDI
+"Egypt, Arab Rep.",0.629,1998,HDI
+Jordan,0.664,1998,HDI
+Saudi Arabia,0.725,1998,HDI
+"Egypt, Arab Rep.",0.634,1999,HDI
+Jordan,0.668,1999,HDI
+Saudi Arabia,0.729,1999,HDI
+"Egypt, Arab Rep.",0.639,2000,HDI
+Jordan,0.672,2000,HDI
+Saudi Arabia,0.737,2000,HDI
+"Egypt, Arab Rep.",0.642,2001,HDI
+Jordan,0.679,2001,HDI
+Saudi Arabia,0.744,2001,HDI
+"Egypt, Arab Rep.",0.643,2002,HDI
+Jordan,0.686,2002,HDI
+Saudi Arabia,0.75,2002,HDI
+"Egypt, Arab Rep.",0.643,2003,HDI
+Jordan,0.693,2003,HDI
+Saudi Arabia,0.762,2003,HDI
+"Egypt, Arab Rep.",0.645,2004,HDI
+Jordan,0.705,2004,HDI
+Saudi Arabia,0.773,2004,HDI
+"Egypt, Arab Rep.",0.648,2005,HDI
+Jordan,0.713,2005,HDI
+Lebanon,0.71,2005,HDI
+Saudi Arabia,0.782,2005,HDI
+"Egypt, Arab Rep.",0.651,2006,HDI
+Jordan,0.719,2006,HDI
+Lebanon,0.713,2006,HDI
+Saudi Arabia,0.785,2006,HDI
+"Egypt, Arab Rep.",0.658,2007,HDI
+Jordan,0.725,2007,HDI
+Lebanon,0.726,2007,HDI
+Saudi Arabia,0.786,2007,HDI
+"Egypt, Arab Rep.",0.665,2008,HDI
+Jordan,0.733,2008,HDI
+Lebanon,0.734,2008,HDI
+Saudi Arabia,0.792,2008,HDI
+"Egypt, Arab Rep.",0.671,2009,HDI
+Jordan,0.735,2009,HDI
+Lebanon,0.743,2009,HDI
+Saudi Arabia,0.794,2009,HDI
+"Egypt, Arab Rep.",0.677,2010,HDI
+Jordan,0.732,2010,HDI
+Lebanon,0.75,2010,HDI
+Saudi Arabia,0.801,2010,HDI
+"Egypt, Arab Rep.",0.68,2011,HDI
+Jordan,0.734,2011,HDI
+Lebanon,0.758,2011,HDI
+Saudi Arabia,0.811,2011,HDI
+"Egypt, Arab Rep.",0.689,2012,HDI
+Jordan,0.74,2012,HDI
+Lebanon,0.762,2012,HDI
+Saudi Arabia,0.819,2012,HDI
+"Egypt, Arab Rep.",0.695,2013,HDI
+Jordan,0.742,2013,HDI
+Lebanon,0.762,2013,HDI
+Saudi Arabia,0.827,2013,HDI
+"Egypt, Arab Rep.",0.699,2014,HDI
+Jordan,0.742,2014,HDI
+Lebanon,0.761,2014,HDI
+Saudi Arabia,0.841,2014,HDI
+"Egypt, Arab Rep.",0.706,2015,HDI
+Jordan,0.743,2015,HDI
+Lebanon,0.763,2015,HDI
+Saudi Arabia,0.851,2015,HDI
+"Egypt, Arab Rep.",0.713,2016,HDI
+Jordan,0.745,2016,HDI
+Lebanon,0.767,2016,HDI
+Saudi Arabia,0.86,2016,HDI
+"Egypt, Arab Rep.",0.72,2017,HDI
+Jordan,0.747,2017,HDI
+Lebanon,0.772,2017,HDI
+Saudi Arabia,0.869,2017,HDI
+"Egypt, Arab Rep.",0.728,2018,HDI
+Jordan,0.747,2018,HDI
+Lebanon,0.774,2018,HDI
+Saudi Arabia,0.875,2018,HDI
+"Egypt, Arab Rep.",0.736,2019,HDI
+Jordan,0.75,2019,HDI
+Lebanon,0.771,2019,HDI
+Saudi Arabia,0.878,2019,HDI
+"Egypt, Arab Rep.",0.736,2020,HDI
+Jordan,0.743,2020,HDI
+Lebanon,0.75,2020,HDI
+Saudi Arabia,0.875,2020,HDI
+"Egypt, Arab Rep.",0.738,2021,HDI
+Jordan,0.736,2021,HDI
+Lebanon,0.733,2021,HDI
+Saudi Arabia,0.878,2021,HDI
+"Egypt, Arab Rep.",0.751,2022,HDI
+Jordan,0.751,2022,HDI
+Lebanon,0.755,2022,HDI
+Saudi Arabia,0.893,2022,HDI
+"Egypt, Arab Rep.",0.754,2023,HDI
+Jordan,0.754,2023,HDI
+Lebanon,0.752,2023,HDI
+Saudi Arabia,0.9,2023,HDI
+"Egypt, Arab Rep.",0.652,1990,GII
+"Egypt, Arab Rep.",0.657,1991,GII
+"Egypt, Arab Rep.",0.65,1992,GII
+"Egypt, Arab Rep.",0.647,1993,GII
+"Egypt, Arab Rep.",0.641,1994,GII
+"Egypt, Arab Rep.",0.638,1995,GII
+"Egypt, Arab Rep.",0.671,1996,GII
+"Egypt, Arab Rep.",0.653,1997,GII
+"Egypt, Arab Rep.",0.633,1998,GII
+"Egypt, Arab Rep.",0.631,1999,GII
+"Egypt, Arab Rep.",0.622,2000,GII
+Jordan,0.614,2000,GII
+"Egypt, Arab Rep.",0.61,2001,GII
+Jordan,0.601,2001,GII
+"Egypt, Arab Rep.",0.615,2002,GII
+Jordan,0.593,2002,GII
+"Egypt, Arab Rep.",0.586,2003,GII
+Jordan,0.554,2003,GII
+Saudi Arabia,0.78,2003,GII
+"Egypt, Arab Rep.",0.571,2004,GII
+Jordan,0.552,2004,GII
+Saudi Arabia,0.771,2004,GII
+"Egypt, Arab Rep.",0.572,2005,GII
+Jordan,0.552,2005,GII
+Saudi Arabia,0.766,2005,GII
+"Egypt, Arab Rep.",0.573,2006,GII
+Jordan,0.54,2006,GII
+Saudi Arabia,0.763,2006,GII
+"Egypt, Arab Rep.",0.561,2007,GII
+Jordan,0.516,2007,GII
+Lebanon,0.413,2007,GII
+Saudi Arabia,0.765,2007,GII
+"Egypt, Arab Rep.",0.562,2008,GII
+Jordan,0.517,2008,GII
+Lebanon,0.411,2008,GII
+Saudi Arabia,0.762,2008,GII
+"Egypt, Arab Rep.",0.553,2009,GII
+Jordan,0.514,2009,GII
+Lebanon,0.437,2009,GII
+Saudi Arabia,0.763,2009,GII
+"Egypt, Arab Rep.",0.552,2010,GII
+Jordan,0.489,2010,GII
+Lebanon,0.433,2010,GII
+Saudi Arabia,0.754,2010,GII
+"Egypt, Arab Rep.",0.545,2011,GII
+Jordan,0.488,2011,GII
+Lebanon,0.438,2011,GII
+Saudi Arabia,0.751,2011,GII
+"Egypt, Arab Rep.",0.566,2012,GII
+Jordan,0.491,2012,GII
+Lebanon,0.434,2012,GII
+Saudi Arabia,0.749,2012,GII
+"Egypt, Arab Rep.",0.558,2013,GII
+Jordan,0.488,2013,GII
+Lebanon,0.432,2013,GII
+Saudi Arabia,0.309,2013,GII
+"Egypt, Arab Rep.",0.548,2014,GII
+Jordan,0.489,2014,GII
+Lebanon,0.428,2014,GII
+Saudi Arabia,0.308,2014,GII
+"Egypt, Arab Rep.",0.542,2015,GII
+Jordan,0.477,2015,GII
+Lebanon,0.424,2015,GII
+Saudi Arabia,0.301,2015,GII
+"Egypt, Arab Rep.",0.412,2016,GII
+Jordan,0.442,2016,GII
+Lebanon,0.421,2016,GII
+Saudi Arabia,0.297,2016,GII
+"Egypt, Arab Rep.",0.405,2017,GII
+Jordan,0.427,2017,GII
+Lebanon,0.418,2017,GII
+Saudi Arabia,0.309,2017,GII
+"Egypt, Arab Rep.",0.416,2018,GII
+Jordan,0.434,2018,GII
+Lebanon,0.381,2018,GII
+Saudi Arabia,0.298,2018,GII
+"Egypt, Arab Rep.",0.424,2019,GII
+Jordan,0.439,2019,GII
+Lebanon,0.384,2019,GII
+Saudi Arabia,0.283,2019,GII
+"Egypt, Arab Rep.",0.405,2020,GII
+Jordan,0.442,2020,GII
+Lebanon,0.387,2020,GII
+Saudi Arabia,0.245,2020,GII
+"Egypt, Arab Rep.",0.395,2021,GII
+Jordan,0.441,2021,GII
+Lebanon,0.383,2021,GII
+Saudi Arabia,0.22,2021,GII
+"Egypt, Arab Rep.",0.399,2022,GII
+Jordan,0.433,2022,GII
+Lebanon,0.361,2022,GII
+Saudi Arabia,0.219,2022,GII
+"Egypt, Arab Rep.",0.398,2023,GII
+Jordan,0.433,2023,GII
+Lebanon,0.36,2023,GII
+Saudi Arabia,0.228,2023,GII

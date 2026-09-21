@@ -6,6 +6,7 @@ import pandas as pd
 wdi_df = pd.read_csv("development_indicators.csv")
 poverty_df = pd.read_csv("poverty_by_governorate.csv")
 national_df = pd.read_csv("national_poverty_totals.csv")
+hdr_df = pd.read_csv("hdr_indicators.csv")
 
 load_dotenv()
 
@@ -81,7 +82,19 @@ national_obs = list(national_df[["indicator_code", "governorate", "year", "pover
 
 all_observations = wdi_obs + poverty_obs + national_obs
 
-cur.executemany("INSERT INTO observations (indicator_code, location_name, year, value) VALUES (%s, %s, %s, %s) ON CONFLICT (indicator_code, location_name, year) DO NOTHING", all_observations)
+cur.executemany("""INSERT INTO observations (indicator_code, location_name, year, value) VALUES (%s, %s, %s, %s) ON CONFLICT
+                (indicator_code, location_name, year) DO NOTHING""", all_observations)
+conn.commit()
+
+cur.execute("""INSERT INTO indicators (indicator_code, indicator_name, unit, source) VALUES ('HDI', 'Human Development Index', 
+            'index (0-1)', 'UNDP Human Development Reports'), ('GII', 'Gender Inequality Index', 'index (0-1)', 
+            'UNDP Human Development Reports') ON CONFLICT (indicator_code) DO NOTHING""")
+conn.commit()
+
+hdr_obs = list(hdr_df[["indicator_code", "location_name", "year", "value"]].itertuples(index=False, name=None))
+
+cur.executemany("""INSERT INTO observations (indicator_code, location_name, year, value) VALUES (%s, %s, %s, %s) ON CONFLICT
+                (indicator_code, location_name, year) DO NOTHING""", hdr_obs)
 conn.commit()
 
 cur.close()
