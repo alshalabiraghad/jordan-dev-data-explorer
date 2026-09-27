@@ -53,3 +53,22 @@ Data retrieved: 11-9-2026
 
 
 Data retrieved: 13-9-2026
+
+
+## Source 3: UNDP Human Development Reports (HDI, GII)
+
+- Meaning: Human Development Index blends three things, health, education, and income into one composite score. Gender Inequality Index is about a different three things, reproductive health, empowerment, and labor market participation. 
+- Unit: a scale 0-1. for HDI, closer to 1 means higher development (good). for GII, it's the opposite, closer to 0 means more equality (good), and closer to 1 means more inequality (bad).
+- Access method: Downloaded a CSV file "All composite indices and components time series (1990–2023)" from the UNDP HDR data center.
+- File used: HDR25_Composite_indices_complete_time_series.csv
+- Coverage: JOR, EGY, LBN, SAU on years ranged 1990-2023 in the source file but i dropped the years where the value is NA
+
+- Known data quality notes:
+  - Encoding: when the file was read first time an error was thrown, UnicodeDecodeError ,meaning this file simply wasn't saved as UTF-8 in the first place, so i explicitly told pandas to use encoding="cp1252".
+  - Country name mismatch: in this new data set, Egypt was written as "Egypt" while in the locations table its named as "Egypt, Arab Rep.", so i had to make them match to avoid any errors or unwanted new rows in the database, so i chose to change the name in the new data set, not change the one already used in the database.
+  - Missing data: Lebanon has no HDI reported from 1990-2004. For GII, several countries missing in the earliest years, decreasing down to zero by around 2007, meaning GII coverage was extended backward in time for different countries at different points. 
+  - Decision on missing values: I dropped them. It's not a situation where I can invent/estimate values.
+
+- Row counts: HDI = 121, GII = 96 (out of 136 possible each, for 4 countries × 34 years)
+
+Data retrieved: 22-9-2026
