@@ -3,11 +3,23 @@ import pandas as pd
 import psycopg2
 import os
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 
 st.title("Jordan Development Data Explorer")
 
 load_dotenv()
-conn = psycopg2.connect(dbname="jordan_dev_data", user="postgres", password=os.getenv("DB_PASSWORD"), host="localhost")
+
+@st.cache_resource
+def get_connection():
+    return psycopg2.connect(dbname="jordan_dev_data", user="postgres", password=os.getenv("DB_PASSWORD"), host="localhost")
+
+@st.cache_resource
+def get_client():
+    return genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+conn = get_connection()
+client = get_client()
 
 df = pd.read_sql("SELECT o.indicator_code, i.indicator_name, o.location_name, o.year, o.value FROM observations o " \
 "JOIN indicators i ON o.indicator_code = i.indicator_code", conn)
@@ -73,3 +85,18 @@ for location, col in zip(selected_locations, cols):
 st.line_chart(df_filtered)    
 st.dataframe(df_filtered)
 
+st.text_input("Ask a question about the data", key="question_input", placeholder="e.g. What is the trend of youth unemployment in Jordan over the last decade?")
+if st.button("Ask"):
+    question = st.session_state.question_input
+    if not question.strip():
+        st.warning("Please enter a question before clicking 'Ask'.")
+    else:
+        response = client.models.generate_content(
+        model="gemini-3.5-flash-lite",
+        contents=question,
+        config=types.GenerateContentConfig(
+            system_instruction="you are part of a development-data explorer project. Be concise, and be upfront that you don’t yet have access to the project’s actual dataset.",
+            temperature=0.3
+            )
+        )
+        st.write(response.text)
