@@ -80,12 +80,14 @@ cols = st.columns(len(selected_locations))
 for location, col in zip(selected_locations, cols):
     latest_value = df_filtered.loc[df_filtered[location].last_valid_index(), location]
     first_value = df_filtered.loc[df_filtered[location].first_valid_index(), location]
-    col.metric(label=location, value=latest_value, delta= f"{latest_value - first_value:.3f}")
+    col.metric(label=location, value=f"{latest_value:.3f}", delta= f"{latest_value - first_value:.3f}")
 
 st.line_chart(df_filtered)    
 st.dataframe(df_filtered)
 
-st.text_input("Ask a question about the data", key="question_input", placeholder="e.g. What is the trend of youth unemployment in Jordan over the last decade?")
+evidence = df_filtered.to_csv()
+
+st.text_input("Ask a question about the filtered data above", key="question_input", placeholder="e.g. What is the trend of youth unemployment in Jordan over the last decade?")
 if st.button("Ask"):
     question = st.session_state.question_input
     if not question.strip():
@@ -93,9 +95,9 @@ if st.button("Ask"):
     else:
         response = client.models.generate_content(
         model="gemini-3.5-flash-lite",
-        contents=question,
+        contents=f"Here is the available data: {evidence}\n\nQuestion: {question}",
         config=types.GenerateContentConfig(
-            system_instruction="you are part of a development-data explorer project. Be concise, and be upfront that you don’t yet have access to the project’s actual dataset.",
+            system_instruction="you are part of a development-data explorer project. Be concise, and answer only from the given data, and admit when the data doesn’t support an answer.",
             temperature=0.3
             )
         )
