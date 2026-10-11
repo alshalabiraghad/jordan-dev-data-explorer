@@ -102,3 +102,5 @@ if st.button("Ask"):
             )
         )
         st.write(response.text)
+        st.info("This answer is AI-generated from the data currently shown above. Treat it as a starting point for exploration, not an authoritative source; verify important figures against the chart/table above.")
+
