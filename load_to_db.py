@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-import psycopg
+import psycopg2
 import pandas as pd
 
 wdi_df = pd.read_csv("development_indicators.csv")
@@ -10,13 +10,7 @@ hdr_df = pd.read_csv("hdr_indicators.csv")
 
 load_dotenv()
 
-conn = psycopg.connect(
-    dbname="jordan_dev_data",
-    user="postgres",
-    password=os.environ["DB_PASSWORD"],
-    host="localhost",
-    port=5432
-)
+conn = psycopg2.connect(os.getenv("DATABASE_URL"))
 
 cur = conn.cursor()
 
