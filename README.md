@@ -26,9 +26,9 @@ flowchart LR
 ## Setup & Running Locally
 
 1. Clone the repo and install dependencies:
-- git clone https://github.com/alshalabiraghad/jordan-dev-data-explorer.git
-- cd jordan-dev-data-explorer
-- pip install -r requirements.txt
+    - git clone https://github.com/alshalabiraghad/jordan-dev-data-explorer.git
+    - cd jordan-dev-data-explorer
+    - pip install -r requirements.txt
 
 2. Set up PostgreSQL:
    - Create a database named exactly `jordan_dev_data` (e.g. `createdb jordan_dev_data`)
@@ -36,17 +36,17 @@ flowchart LR
    - Run the schema: `psql -d jordan_dev_data -U postgres -f schema.sql`
 
 3. Create a `.env` file in the project root with:
-- DB_PASSWORD=your_postgres_password
-- GEMINI_API_KEY=your_gemini_api_key
+    - DB_PASSWORD=your_postgres_password
+    - GEMINI_API_KEY=your_gemini_api_key
 
 4. Run the data processing scripts, then load the data into Postgres:
-- python explore_data.py
-- python explore_dos_data.py
-- python explore_hdr_data.py
-- python load_to_db.py
+    - python explore_data.py
+    - python explore_dos_data.py
+    - python explore_hdr_data.py
+    - python load_to_db.py
 
 5. Launch the dashboard:
-- sreamlit run app.py
+    - sreamlit run app.py
 
 ## Data Sources & Methodology
 
