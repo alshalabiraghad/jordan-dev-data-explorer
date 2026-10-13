@@ -12,7 +12,7 @@ load_dotenv()
 
 @st.cache_resource
 def get_connection():
-    return psycopg2.connect(dbname="jordan_dev_data", user="postgres", password=os.getenv("DB_PASSWORD"), host="localhost")
+    return psycopg2.connect(os.getenv("DATABASE_URL"))
 
 @st.cache_resource
 def get_client():
