@@ -26,9 +26,9 @@ flowchart LR
 ## Setup & Running Locally
 
 1. Clone the repo and install dependencies:
-git clone https://github.com/alshalabiraghad/jordan-dev-data-explorer.git
-cd jordan-dev-data-explorer
-pip install -r requirements.txt
+- git clone https://github.com/alshalabiraghad/jordan-dev-data-explorer.git
+- cd jordan-dev-data-explorer
+- pip install -r requirements.txt
 
 2. Set up PostgreSQL:
    - Create a database named exactly `jordan_dev_data` (e.g. `createdb jordan_dev_data`)
@@ -36,17 +36,17 @@ pip install -r requirements.txt
    - Run the schema: `psql -d jordan_dev_data -U postgres -f schema.sql`
 
 3. Create a `.env` file in the project root with:
-DB_PASSWORD=your_postgres_password
-GEMINI_API_KEY=your_gemini_api_key
+- DB_PASSWORD=your_postgres_password
+- GEMINI_API_KEY=your_gemini_api_key
 
 4. Run the data processing scripts, then load the data into Postgres:
-python explore_data.py
-python explore_dos_data.py
-python explore_hdr_data.py
-python load_to_db.py
+- python explore_data.py
+- python explore_dos_data.py
+- python explore_hdr_data.py
+- python load_to_db.py
 
 5. Launch the dashboard:
-sreamlit run app.py
+- sreamlit run app.py
 
 ## Data Sources & Methodology
 
@@ -76,3 +76,12 @@ See [`RESPONSIBLE_AI.md`](./RESPONSIBLE_AI.md) for a full breakdown of how this 
 - **Multi-indicator AI queries**: extend the AI Q&A feature to read across the whole dataset rather than only the currently filtered indicator, so users can ask questions comparing two or more indicators to each other (e.g. "how does youth unemployment relate to GDP growth in Jordan?"), not just questions about a single filtered indicator.
 - **UI polish**: wide-layout page config, sidebar-based filters, and more stable chart colors across re-renders.
 - **Configurable database connection**: move the hardcoded database name/user/host into environment variables so the project runs on any local Postgres setup without code changes.
+
+## Screenshots
+
+### Dashboard
+![Dashboard view showing filtered indicator trends](./screenshots/dashboard.png)
+
+### AI Q&A Feature
+![AI Q&A feature answering a question grounded in filtered data](./screenshots/ai_qa.png)
+
