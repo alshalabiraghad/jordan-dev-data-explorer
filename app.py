@@ -32,6 +32,10 @@ df_filtered = df[df["indicator_name"] == selected_indicator]
 list_of_locations = df_filtered["location_name"].unique().tolist()
 selected_locations = st.multiselect("Choose location/s", list_of_locations, default=list_of_locations)
 
+if not selected_locations:
+    st.warning("Please select at least one location to view the data.")
+    st.stop()
+
 min_year = int(df_filtered["year"].min())
 max_year = int(df_filtered["year"].max())
 selected_year_range = st.slider("Choose year range", min_value=min_year, max_value=max_year, value=(min_year, max_year))
@@ -82,6 +86,8 @@ for location, col in zip(selected_locations, cols):
     first_value = df_filtered.loc[df_filtered[location].first_valid_index(), location]
     col.metric(label=location, value=f"{latest_value:.3f}", delta= f"{latest_value - first_value:.3f}")
 
+df_filtered.index = df_filtered.index.astype(str)
+
 st.line_chart(df_filtered)    
 st.dataframe(df_filtered)
 
@@ -93,14 +99,16 @@ if st.button("Ask"):
     if not question.strip():
         st.warning("Please enter a question before clicking 'Ask'.")
     else:
-        response = client.models.generate_content(
-        model="gemini-3.5-flash-lite",
-        contents=f"Here is the available data: {evidence}\n\nQuestion: {question}",
-        config=types.GenerateContentConfig(
-            system_instruction="you are part of a development-data explorer project. Be concise, and answer only from the given data, and admit when the data doesn’t support an answer.",
-            temperature=0.3
-            )
-        )
-        st.write(response.text)
-        st.info("This answer is AI-generated from the data currently shown above. Treat it as a starting point for exploration, not an authoritative source; verify important figures against the chart/table above.")
-        
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.5-flash-lite",
+                contents=f"Here is the available data: {evidence}\n\nQuestion: {question}",
+                config=types.GenerateContentConfig(
+                    system_instruction="you are part of a development-data explorer project. Be concise, and answer only from the given data, and admit when the data doesn’t support an answer.",
+                    temperature=0.3
+                    )
+                )
+            st.write(response.text)
+            st.info("This answer is AI-generated from the data currently shown above. Treat it as a starting point for exploration, not an authoritative source; verify important figures against the chart/table above.")
+        except Exception as e:
+            st.error(f"An error occurred while generating the response. Please try again in a few moments.")
