@@ -26,11 +26,12 @@ def get_client():
 conn = get_connection()
 client = get_client()
 
-df = pd.read_sql("SELECT o.indicator_code, i.indicator_name, o.location_name, o.year, o.value FROM observations o " \
+df = pd.read_sql("SELECT o.indicator_code, i.indicator_name, o.location_name, o.year, o.value, i.unit FROM observations o " \
 "JOIN indicators i ON o.indicator_code = i.indicator_code", conn)
 
 list_of_indicators = df["indicator_name"].unique().tolist()
 selected_indicator = st.selectbox("Choose an indicator", list_of_indicators)
+selected_unit = df.loc[df["indicator_name"] == selected_indicator, "unit"].iloc[0]
 
 df_filtered = df[df["indicator_name"] == selected_indicator]
 
@@ -85,11 +86,20 @@ with st.expander("Sources and Methodology"):
     - Limitations: coverage is uneven, especially for GII (phased in gradually, so earlier years have more missing countries) and HDI for Lebanon (missing 1990-2004). A few isolated large jumps (e.g. Egypt's GII in 2016, Saudi Arabia's in 2013) are more likely UNDP methodology/calculation updates than real one-year social change.
     """)
 
+st.caption(f"{selected_indicator} ({selected_unit})" if selected_unit else selected_indicator)
+
 cols = st.columns(len(selected_locations))
 for location, col in zip(selected_locations, cols):
-    latest_value = df_filtered.loc[df_filtered[location].last_valid_index(), location]
-    first_value = df_filtered.loc[df_filtered[location].first_valid_index(), location]
-    col.metric(label=location, value=f"{latest_value:.3f}", delta= f"{latest_value - first_value:.3f}")
+    first_year = df_filtered[location].first_valid_index()
+    latest_year = df_filtered[location].last_valid_index()
+    latest_value = df_filtered.loc[latest_year, location]
+    first_value = df_filtered.loc[first_year, location]
+    col.metric(
+        label=f"{location}",
+        value=f"{latest_value:.3f}",
+        delta=f"{latest_value - first_value:.3f}",
+        help=f"This shows the latest year's value ({latest_year}) and the change from {first_year} ({first_value:.3f}) to {latest_year} ({latest_value:.3f})"
+    )
 
 df_filtered.index = df_filtered.index.astype(str)
 
