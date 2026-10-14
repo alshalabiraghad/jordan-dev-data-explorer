@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from sqlalchemy import create_engine
 
 st.title("Jordan Development Data Explorer")
 
@@ -12,7 +13,11 @@ load_dotenv()
 
 @st.cache_resource
 def get_connection():
-    return psycopg2.connect(os.getenv("DATABASE_URL"))
+    db_url = os.getenv("DATABASE_URL")
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+    if not db_url.startswith("postgresql+"):
+        db_url = db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    return create_engine(db_url, pool_pre_ping=True)
 
 @st.cache_resource
 def get_client():
